@@ -1,6 +1,6 @@
-$(window).load(function(){
+$(window).load(function() {
 	$('.loading').fadeOut('fast');
-	$('.container').fadeIn('fast');
+	// $('.container').fadeIn('fast');
 });
 $('document').ready(function(){
 		var vw;
@@ -15,7 +15,15 @@ $('document').ready(function(){
 			$('#b66').animate({top:240, left: vw+150},500);
 			$('#b77').animate({top:240, left: vw+250},500);
 		});
-
+	
+	$('#confirm').click(function(){
+		if ($('#yourName').val() === '卢春红') {
+			$('.inputName').fadeOut('fast');
+			$('.container').fadeIn('fast');
+		} else {
+			$('.err').show();
+		}
+	})
 	$('#turn_on').click(function(){
 		$('#bulb_yellow').addClass('bulb-glow-yellow');
 		$('#bulb_red').addClass('bulb-glow-red');
