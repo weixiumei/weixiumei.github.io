@@ -311,6 +311,9 @@
 	left:60%;
 	top:10%;
 }
+.fontCus14 {
+  font-size: 14px!important;
+}
 .ly-stxt01 {
 	font-family: Microsoft YaHei;
 	font-size: 26px;
@@ -748,7 +751,7 @@
 
 .ly-txt12 {
 	font-family: Microsoft YaHei;
-	font-size: 20px;
+	font-size: 18px;
 	text-indent:2em;
 	font-color: #000;
 	position: absolute;
@@ -832,7 +835,7 @@
 .ly-txt14 {
 	text-indent:2em;
 	font-family: Microsoft YaHei;
-	font-size: 18px;
+	font-size: 16px;
 	font-color: #000;
 	position: absolute;
 	margin-left:30px;
@@ -963,7 +966,7 @@
 .ly-txt22 {
 	font-family: Microsoft YaHei;
 	font-size: 13px;
-	text-indent:2em;
+	text-indent:1em;
 	font-color: #000;
 	position: absolute;
 	left: 5%;
@@ -1803,6 +1806,7 @@
 	transition: all 1s;
 }
 .active .ly-box81{
+  font-size: 16px;
 	opacity: 0.9;
 	-webkit-transform: scale(1, 1);
 	transform: scale(1, 1);
