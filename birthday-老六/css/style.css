@@ -457,7 +457,14 @@
 	90% {opacity:1;margin-top:0;}
 	100% {opacity:0;margin-top:0;}
 }
-
+.img_center {
+  display: flex;
+  justify-content: center;
+}
+.img_center img{
+  width: auto;
+  height: 100%;
+}
 .ly-stxt06 {
 	font-family: Microsoft YaHei;
 	font-size: 30px;
