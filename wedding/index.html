@@ -98,10 +98,33 @@
     "1126jsa27593-219.jpg"
   ]
   let html = ''
+  function appendHtml(elem, value){
+    var node = document.createElement("div"),
+        fragment = document.createDocumentFragment(),
+        childs = null,
+        i = 0;
+    node.innerHTML = value;
+    childs = node.childNodes;
+    for( ; i < childs.length; i++){
+      fragment.appendChild(childs[i]);
+    }
+    elem.appendChild(fragment);
+    childs = null;
+    fragment = null;
+    node = null;
+  }
   imgs.forEach((item) => {
-    html += `<img src="./imgs/${item}" onclick="openImg('${item.toString()}')">`
+    var img = new Image()
+    img.src = `./imgs/${item}`
+    img.onload = function(a,b) {
+      console.log('=====',img.src)
+      html = `<img src="./imgs/${item}" onclick="openImg('${item.toString()}')">`
+      appendHtml(document.getElementsByClassName('img_div')[0], html)
+      // document.getElementsByClassName('img_div')[0].append(html)
+    }
+    // html += `<img src="./imgs/${item}" onclick="openImg('${item.toString()}')">`
   })
-  document.getElementsByClassName('img_div')[0].innerHTML = html
+  
 
   function openImg (img) {
     document.getElementsByClassName('big_bg')[0].style.display = 'flex'
