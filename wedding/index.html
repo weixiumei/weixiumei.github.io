@@ -97,8 +97,19 @@
     "1126jsa27593-217.jpg",
     "1126jsa27593-219.jpg"
   ]
-  let html = ''
-  function appendHtml(elem, value){
+  var i = 0
+  function showImg() {
+    if (!imgs[i]) return
+    var img = new Image()
+    img.src = `./imgs/${imgs[i]}`
+    img.onload = function () {
+      appendHtml(document.getElementsByClassName('img_div')[0], `<img src="./imgs/${imgs[i]}" onclick="openImg('${imgs[i]}')">`)
+      i++
+      showImg()
+    }
+  }
+  showImg(0)
+  function appendHtml(elem,value){
     var node = document.createElement("div"),
         fragment = document.createDocumentFragment(),
         childs = null,
@@ -106,25 +117,47 @@
     node.innerHTML = value;
     childs = node.childNodes;
     for( ; i < childs.length; i++){
-      fragment.appendChild(childs[i]);
+        fragment.appendChild(childs[i]);
     }
     elem.appendChild(fragment);
     childs = null;
     fragment = null;
     node = null;
   }
-  imgs.forEach((item) => {
-    var img = new Image()
-    img.src = `./imgs/${item}`
-    img.onload = function(a,b) {
-      console.log('=====',img.src)
-      html = `<img src="./imgs/${item}" onclick="openImg('${item.toString()}')">`
-      appendHtml(document.getElementsByClassName('img_div')[0], html)
-      // document.getElementsByClassName('img_div')[0].append(html)
-    }
-    // html += `<img src="./imgs/${item}" onclick="openImg('${item.toString()}')">`
-  })
+  // let html = ''
+  // imgs.forEach((item) => {
+  //   html += `<img data-src="./imgs/${item}" src="./imgs/sun.jpeg" onclick="openImg('${item.toString()}')">`
+  // })
+  // document.getElementsByClassName('img_div')[0].innerHTML = html
+
+
   
+  // //获取全部img标签
+  // var images = document.getElementsByTagName("img");
+  // window.addEventListener("scroll", (e) => {
+  //   //当发生滚动事件时调用ergodic事件
+  //   ergodic();
+  // });
+  // function ergodic() {
+  //   // 遍历每一张图
+  //   for (let i of images) {
+  //     //判断当前图片是否在可视区内
+  //     if (i.offsetTop <= window.innerHeight + window.scrollY) {
+  //         //获取自定义data-src属性的值
+  //         let trueSrc = i.getAttribute("data-src");
+  //         //把值赋值给图片的src属性
+  //         i.setAttribute("src", trueSrc);
+  //     }
+  //   }
+  // }
+  // //没发生滚动事件时也要先执行一次
+  // ergodic();
+
+  // let html = ''
+  // imgs.forEach((item) => {
+  //   html += `<img src="./imgs/${item}" onclick="openImg('${item.toString()}')">`
+  // })
+  // document.getElementsByClassName('img_div')[0].innerHTML = html
 
   function openImg (img) {
     document.getElementsByClassName('big_bg')[0].style.display = 'flex'
