@@ -15,6 +15,7 @@
       display: block;
       margin: 1%;
       width: 23%;
+      height: fit-content;
     }
     .demo-image__lazy .el-image:last-child {
       margin-bottom: 0;
@@ -32,8 +33,8 @@
       display: none;
     }
     .big_bg img {
-      min-width: 50%;
-      min-height: 50%;
+      max-width: 95%;
+      max-height: 95%;
     }
   </style>
 </head>
@@ -45,7 +46,56 @@
 </body>
 
 <script>
-  var imgs = ["sun.jpeg","sun.jpeg"]
+  var imgs = ["000DB-1126jsa27593-201-1.jpg",
+"000DB-1126jsa27593-068-1-.jpg",
+"000DB-1126jsa27593-174-1.jpg",
+"1126jsa27593-001.jpg",
+"1126jsa27593-002.jpg",
+"1126jsa27593-007.jpg",
+"1126jsa27593-008.jpg",
+"1126jsa27593-013.jpg",
+"1126jsa27593-018.jpg",
+"1126jsa27593-019.jpg",
+"1126jsa27593-026.jpg",
+"1126jsa27593-041.jpg",
+"1126jsa27593-051.jpg",
+"1126jsa27593-057.jpg",
+"1126jsa27593-080.jpg",
+"1126jsa27593-081.jpg",
+"1126jsa27593-084.jpg",
+"1126jsa27593-086.jpg",
+"1126jsa27593-089.jpg",
+"1126jsa27593-091.jpg",
+"1126jsa27593-107.jpg",
+"1126jsa27593-111.jpg",
+"1126jsa27593-112.jpg",
+"1126jsa27593-114.jpg",
+"1126jsa27593-117.jpg",
+"1126jsa27593-119.jpg",
+"1126jsa27593-120.jpg",
+"1126jsa27593-123.jpg",
+"1126jsa27593-125.jpg",
+"1126jsa27593-126.jpg",
+"1126jsa27593-134.jpg",
+"1126jsa27593-135.jpg",
+"1126jsa27593-139.jpg",
+"1126jsa27593-142.jpg",
+"1126jsa27593-144.jpg",
+"1126jsa27593-153.jpg",
+"1126jsa27593-154.jpg",
+"1126jsa27593-170.jpg",
+"1126jsa27593-171.jpg",
+"1126jsa27593-183.jpg",
+"1126jsa27593-186.jpg",
+"1126jsa27593-188.jpg",
+"1126jsa27593-191.jpg",
+"1126jsa27593-192.jpg",
+"1126jsa27593-205.jpg",
+"1126jsa27593-209.jpg",
+"1126jsa27593-215.jpg",
+"1126jsa27593-216.jpg",
+"1126jsa27593-217.jpg",
+"1126jsa27593-219.jpg"]
   let html = ''
   imgs.forEach((item) => {
     html += `<img src="./imgs/${item}" onclick="openImg('${item.toString()}')">`
