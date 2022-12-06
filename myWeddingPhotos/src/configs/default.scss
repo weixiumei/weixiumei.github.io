@@ -1,0 +1,240 @@
+/* 需要对所有颜色层级进行配色，很麻烦 */
+* {
+  padding: 0;
+  margin: 0;
+}
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-text-fill-color: #ededed !important;
+  box-shadow: 0 0 0px 1000px transparent inset !important;
+  background-color: transparent;
+  background-image: none;
+  transition: background-color 50000s ease-in-out 0s;
+  //背景色透明  生效时长  过渡效果  启用时延迟的时间
+}
+
+:root {
+  // etc 专属变量添加
+  --etc-color-background: #f8f8f9;
+  --etc-color-wrap-background: #f0f2f6;
+  --etc-header-height: 60px;
+  --etc-padding-left-20: 20px;
+  --etc-20px: 20px;
+  --etc-text-color: #919ab1;
+
+  // element 默认变量修改
+  --el-font-family: PingFangSC-Regular, PingFang SC, 'Microsoft YaHei', '微软雅黑', Arial,
+    sans-serif;
+  --el-font-weight-primary: 400;
+  .el-button--primary {
+    --el-button-hover-bg-color: #35509b;
+    --el-button-hover-border-color: #35509b;
+  }
+  .el-button--primary.is-plain,
+  .el-button--primary.is-text,
+  .el-button--primary.is-link {
+    --el-button-text-color: var(--el-color-primary);
+    --el-button-bg-color: #fff;
+    --el-button-border-color: var(--el-color-primary-light-5);
+    --el-button-hover-text-color: var(--el-color-primary);
+    --el-button-hover-bg-color: var(--el-color-primary-light-9) !important;
+    --el-button-hover-border-color: var(--el-color-primary-light-5) !important;
+    --el-button-active-text-color: var(--el-color-primary);
+  }
+}
+
+$theme_color: #3d71ef;
+$bg_color: #f7f7f7;
+
+.normalWrap {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 30px;
+}
+
+@function tow($a) {
+  @return ($a/1446) * calc(100vw - 180px);
+}
+
+html,
+body {
+  font-family: PingFangSC-Regular, PingFang SC, 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+}
+
+.pt5 {
+  padding-top: 5px;
+}
+
+.p10 {
+  padding: 10px;
+}
+
+.pt10 {
+  padding-top: 10px;
+}
+
+.p20 {
+  padding: 20px;
+}
+
+.pt20 {
+  padding-top: 20px;
+}
+
+.pb20 {
+  padding-bottom: 20px;
+}
+
+.plr20 {
+  padding: 0 20px;
+}
+
+.p30 {
+  padding: 30px;
+}
+
+.pt30 {
+  padding-top: 30px;
+}
+
+.pb30 {
+  padding-bottom: 30px;
+}
+
+.plr30 {
+  padding: 0 30px;
+}
+
+.m5 {
+  margin: 5px;
+}
+
+.m20 {
+  margin: 20px;
+}
+
+.mt10 {
+  margin-top: 10px;
+}
+
+.mt16 {
+  margin-top: 16px;
+}
+
+.mt20 {
+  margin-top: 20px;
+}
+
+.mb10 {
+  margin-bottom: 10px;
+}
+
+.mb20 {
+  margin-bottom: 20px;
+}
+
+.mlr20 {
+  margin: 0 20px;
+}
+
+.m30 {
+  margin: 30px;
+}
+
+.mt30 {
+  margin-top: 30px;
+}
+
+.mb30 {
+  margin-bottom: 30px;
+}
+.mr30 {
+  margin-right: 30px;
+}
+.mb16 {
+  margin-bottom: 16px;
+}
+
+.mlr30 {
+  margin: 0 30px;
+}
+
+.mr20 {
+  margin-right: 20px;
+}
+
+.ml10 {
+  margin-left: 10px;
+}
+
+.ml20 {
+  margin-left: 20px;
+}
+.ml25 {
+  margin-left: 25px;
+}
+.flex_start {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.flex_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex_between {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.normalWrap {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.c_header {
+  font-size: 16px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #16213b;
+}
+
+.store_list_wrap {
+  background-color: $bg_color;
+  font-size: 14px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #16213b;
+  line-height: 20px;
+
+  .c_header {
+    font-size: 16px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #16213b;
+  }
+
+  .input-suffix {
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+  }
+
+  .store_search {
+    .s_label {
+      display: block;
+      text-align: right;
+      padding-right: 16px;
+    }
+
+    .self_select {
+      width: 100%;
+    }
+  }
+}
