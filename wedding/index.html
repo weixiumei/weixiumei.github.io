@@ -45,18 +45,31 @@
 </body>
 
 <script>
+  function IsPC(){  
+    var userAgentInfo = navigator.userAgent;
+    var Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod");  
+    var flag = true;  
+    for (var v = 0; v < Agents.length; v++) {  
+        if (userAgentInfo.indexOf(Agents[v]) > 0) { flag = false; break; }  
+    }  
+    return flag;  
+  }
+
+  // if (IsPC()) {
+  //   document.getElementsByTagName("img").style.width = '23%'
+  // } else {
+  //   document.getElementsByTagName("img").style.width = '46%'
+  // }
+  var isPC = IsPC()
   var imgs = [
-    "000DB-1126jsa27593-201-1.jpg",
-    "000DB-1126jsa27593-068-1-.jpg",
-    "000DB-1126jsa27593-174-1.jpg",
     "1126jsa27593-001.jpg",
+    "1126jsa27593-026.jpg",
     "1126jsa27593-002.jpg",
-    "1126jsa27593-007.jpg",
     "1126jsa27593-008.jpg",
     "1126jsa27593-013.jpg",
     "1126jsa27593-018.jpg",
     "1126jsa27593-019.jpg",
-    "1126jsa27593-026.jpg",
+    "1126jsa27593-007.jpg",
     "1126jsa27593-041.jpg",
     "1126jsa27593-051.jpg",
     "1126jsa27593-057.jpg",
@@ -95,7 +108,10 @@
     "1126jsa27593-215.jpg",
     "1126jsa27593-216.jpg",
     "1126jsa27593-217.jpg",
-    "1126jsa27593-219.jpg"
+    "1126jsa27593-219.jpg",
+    "000DB-1126jsa27593-201-1.jpg",
+    "000DB-1126jsa27593-068-1-.jpg",
+    "000DB-1126jsa27593-174-1.jpg",
   ]
   var i = 0
   function showImg() {
@@ -103,7 +119,7 @@
     var img = new Image()
     img.src = `./imgs/${imgs[i]}`
     img.onload = function () {
-      appendHtml(document.getElementsByClassName('img_div')[0], `<img src="./imgs/${imgs[i]}" onclick="openImg('${imgs[i]}')">`)
+      appendHtml(document.getElementsByClassName('img_div')[0], `<img src="./imgs/${imgs[i]}" style="width: ${isPC?'23%':'46%'};" onclick="openImg('${imgs[i]}')">`)
       i++
       showImg()
     }
@@ -117,7 +133,7 @@
     node.innerHTML = value;
     childs = node.childNodes;
     for( ; i < childs.length; i++){
-        fragment.appendChild(childs[i]);
+      fragment.appendChild(childs[i]);
     }
     elem.appendChild(fragment);
     childs = null;
