@@ -1,15 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vite App</title>
-    <script type="module" crossorigin src="./assets/index.900b8f6e.js"></script>
-    <link rel="stylesheet" href="./assets/index.d955aebe.css">
-  </head>
-  <body>
-    <div id="app"></div>
-    
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>photo</title>
+  <style>
+    .demo-image__lazy {
+      overflow-y: auto;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .demo-image__lazy img {
+      display: block;
+      margin: 1%;
+      width: 23%;
+    }
+    .demo-image__lazy .el-image:last-child {
+      margin-bottom: 0;
+    }
+    .big_bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(213, 213, 213, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      display: none;
+    }
+    .big_bg img {
+      min-width: 50%;
+      min-height: 50%;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <div class="demo-image__lazy img_div"></div>
+    <div class="big_bg" onclick="closeImg()"></div>
+  </div>
+</body>
+
+<script>
+  var imgs = ["sun.jpeg","sun.jpeg"]
+  let html = ''
+  imgs.forEach((item) => {
+    html += `<img src="./imgs/${item}" onclick="openImg('${item.toString()}')">`
+  })
+  document.getElementsByClassName('img_div')[0].innerHTML = html
+
+  function openImg (img) {
+    document.getElementsByClassName('big_bg')[0].style.display = 'flex'
+    document.getElementsByClassName('big_bg')[0].innerHTML = `<img src="./imgs/${img}">`
+  }
+  function closeImg() {
+    document.getElementsByClassName('big_bg')[0].style.display = 'none'
+  }
+</script>
 </html>
