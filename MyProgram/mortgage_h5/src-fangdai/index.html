@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>首页</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1, maximum-scale=1.0, user-scalable=no"> 
+		<meta content="telephone=no" name="format-detection" />
+		<!-- <script src="assets/js/jquery-1.12.4.min.js"></script>
+		<script src="assets/js/calculate.js"></script>
+		<link rel="stylesheet" type="text/css" href="assets/css/rule.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
+		<script>
+			window.bridge = window.bridge || {};
+			// 原生点击返回调用
+			window.bridge.backButtonClick = function () {
+				// 跳转，app拦截判断
+				window.location.href = 'bridge://processBackButtonClicked?default_parameter=exit_app';
+			}
+		</script>
+		<style>
+			html,body{
+        margin: 0;
+				padding: 0;
+				/* background: #fff; */
+				background-color: #242323;
+      }
+			.container{
+				/* width: 80%; */
+				margin: 20px 5px;
+			}
+			.container .row{
+				display: flex;
+			}
+			.container .row .grid{
+				width: 200px;
+				padding: 10px;
+				text-align: center;
+				/* border: 1px solid #e1e1e1; */
+				border: 1px solid #2e2d2d;
+			}
+			.cal_text{
+				font-size: 20px;
+				/* color: #3d3d3d; */
+				color: #989898;
+				/* font-family: Microsoft Yahei; */
+			}
+			a{
+				text-decoration:none; 
+				color:#333; 
+			}
+			img{
+				width: 50px;
+				/* margin-top: 20px; */
+			}
+			/* rate_content */
+			.head{
+				/* height:20px; */
+				padding: 5px 10px;
+				/* background: #dbdbdb; */
+				background: #0c0b0b;
+				color: #d3d3d3;
+				margin-top: 16px;
+				/* border: 1px solid #c5c5c5;
+				background-image:-webkit-gradient(linear,50% 0,0 100%,from(transparent), color-stop(.5,transparent),color-stop(.5,#fff),to(#fff)),
+												-webkit-gradient(linear,50% 0,100% 100%,from(transparent), color-stop(.5,transparent),color-stop(.5,#fff),to(#fff));
+				background-image:-moz-linear-gradient(50% 0 -45deg,transparent,transparent 50%,#fff 50%,#fff),
+												-moz-linear-gradient(50% 0 -135deg,transparent,transparent 50%,#fff 50%,#fff);                                
+				background-size:10px 15px;
+				background-repeat:repeat-x;
+				background-position:0 100%;*/
+			}
+			.title{
+				margin: 5px 10px;
+				font-weight: 500;
+				color: #d3d3d3;
+			}
+			.content{
+				padding: 5px 10px;
+				font-size: 14px;
+				color: #989898;
+			}
+			.hr{
+				border-top: 1px solid #4b4848;
+				margin-top: 10px;
+			}
+			table{
+				width: 96%;
+				font-weight: lighter;
+				/* border: 1px solid #c1bbbb; */
+				margin: 3% 2%;
+				border-radius: 8px;
+				color: #a8a8a8;
+			}
+			table tr td:nth-child(2){
+				color: #F8930F;
+				text-align: center;
+			}
+			table .tit{
+				background: #1d1b1b;
+				font-weight: 500;
+				color: #a8a8a8!important;
+			}
+			table td{
+				/* background: red; */
+				border: 1px solid;
+				/* border-width: 1px; */
+				padding: 3px;
+				border-style: solid;
+				border-color: #4b4848;
+				/* background-color: #ffffff; */
+				border-top: 0;
+				border-left: 0;
+				border-right: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="grid">
+					<a href="cal_mortgage.html">
+						<img src="assets/img/icon.png" alt="">
+						<div class="cal_text">房贷计算器</div>
+					</a>
+				</div>
+				<div class="grid">
+					<a href="cal_science.html">
+						<img src="assets/img/science.png" alt="">
+						<div class="cal_text">科学计算器</div>
+					</a>
+				</div>
+			</div>
+			<div class="row">
+					<div class="grid">
+						<a href="cal_tax_rate.html">
+							<img src="assets/img/rate.png" alt="">
+							<div class="cal_text">税率计算器</div>
+						</a>
+					</div>
+					<div class="grid">
+						<a href="information.html">
+							<img src="assets/img/information.png" alt="">
+							<div class="cal_text">房产资讯</div>
+						</a>
+					</div>
+				</div>
+		</div>
+		<div class="rate_content">
+			<section>
+				<div class="head">等额本息还款法</div> 
+				<div class="title">定义：</div>
+				<div class="content">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;等额本息还款法，即借款人每月按相等的金额偿还货款
+						本息，其中每月货款利息按月初剩余货款本金计算并逐月结
+						清。由于每月的还款额相等，因此，在货款初期每月的还款
+						中，剔除按月结清的利息后，所还的货款本金就较少;而在货
+						款后期因货款本金不断减少，每月的还款额中货款利息也不断
+						减少，每月所还的货款本金就较多。这种还款方式，实际占用
+						银行货款的数量更多、占用的时间更长，同时它还便于借款人
+						合理安排每月的生活和进行理财(如以租养房等)，对于精通
+						投资、擅长于“以钱生钱”的人来说，无疑是最好的选择。
+				</div>
+				<div class="hr"></div>
+				<div class="title">计算公式：</div>
+				<div class="content">
+					每月还款额=[货款本金X月利率X (1 +月利率)A还款月 数]+[ (1+月利率)A还款月数一 1]
+				</div>
+			</section>
+			<section>
+				<div class="head">等额本金还款法</div> 
+				<div class="title">定义：</div>
+				<div class="content">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所谓等额本金还款，货款人将本金分摊到每个月内，同
+						时付清上一交易日至本次还款日之间的利息。这种还款方式相
+						对等额本息而言，总的利息支出较低，但是前期支付的本金和
+						利息较多，还款负担逐月递减。等额本金还款法是一种计算非
+						常简便，实用性很强的一种还款方式。基本算法原理是在还款
+						期内按期等额归还货款本金，并同时还清当期未归还的本金所
+						产生的利息。方式可以是按月还款和按季还款。
+				</div>
+				<div class="hr"></div>
+				<div class="title">计算公式：</div>
+				<div class="content">
+					每季还款额=货款本金+货款期季数+(本金-已归还本金累计 额)x季利率
+				</div>
+			</section>
+			<section>
+				<div class="head">人民币贷款基准利率调整表</div>
+				<table>
+					<tr>
+						<td></td>
+						<td class="tit">调整后利率(%)</td>
+					</tr>
+					<tr>
+						<td class="tit">个人商业贷款</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>六个月</td>
+						<td>4.35</td>
+					</tr>
+					<tr>
+						<td>一年</td>
+						<td>4.35</td>
+					</tr>
+					<tr>
+						<td>一至三年</td>
+						<td>4.75</td>
+					</tr>
+					<tr>
+						<td>三至五年</td>
+						<td>4.75</td>
+					</tr>
+					<tr>
+						<td>五年以上</td>
+						<td>4.90</td>
+					</tr>
+					<tr>
+						<td class="tit">个人住房公积金贷款</td>
+						<td>--</td>
+					</tr>
+					<tr>
+						<td>五年以下（含五年）</td>
+						<td>2.75</td>
+					</tr>
+					<tr>
+						<td>五年以上</td>
+						<td>3.25</td>
+					</tr>
+					<tr>     
+						<td colspan="2" style="text-align:right;">2018-06-02更新</td>
+					</tr>
+				</table>
+			</section>
+		</div>
+	</body>
+</html>

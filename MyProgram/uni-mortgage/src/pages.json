@@ -1,0 +1,22 @@
+{
+	"pages": [
+		{
+			"path": "pages/index",
+			"style": {
+				"navigationBarTitleText": "房贷计算器"
+			}
+		},
+    {
+			"path": "pages/cal_mortgage",
+			"style": {
+				"navigationBarTitleText": "房贷计算"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "房贷计算器",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	}
+}

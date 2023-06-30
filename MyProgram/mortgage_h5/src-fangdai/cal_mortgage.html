@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>房贷计算器</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1, maximum-scale=1.0, user-scalable=no"> 
+		<meta content="telephone=no" name="format-detection" />
+		<script src="assets/js/jquery-1.12.4.min.js"></script>
+		<script src="assets/js/calculate.js"></script>
+		<link rel="stylesheet" type="text/css" href="assets/css/rule.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	</head>
+	<body>
+			<!-- 贷款类型 -->
+		<div class="cal_house_btn">
+			<div class="mode">
+				<div class="active focus_font_color normal">商业</div>
+				<div class="normal">公积金</div>
+				<div class="normal">组合</div>
+				<div class="normal">提前还贷</div>
+				<div class="animation first" style="left: 0%;">
+					<div class="animation2"></div>
+				</div>
+			</div>
+		</div>
+		<!-- 月供显示 -->
+		<div id="top_part_1" class="top_part_1 monthly_supply center defaut_font_color">
+			<div class="type_text">每月还款(元)</div>
+			<div class="month_flex">
+				<div class="mont_mount mount_color">0 </div>
+				<div class="detail focus_font_color" onclick="go_detail()">月供详情 ></div>
+			</div>
+			<div class="monthly_detail">
+				<div>每月递减<div class="mount_color" id="mount1">0></div></div>
+				<div>支付利息<div class="mount_color" id="mount2">0</div></div>
+				<div>还款总额<div class="mount_color" id="mount3">0</div></div>
+			</div>
+			<div class="line"></div>
+		</div>
+		<!-- <div>在下方输入贷款信息</div> -->
+		<!-- 提前还贷，顶部实时计算区域 -->
+		<div id="top_part_2" class="top_part_2 monthly_supply center defaut_font_color">
+			<div class="type_text">原每月还款(元)</div>
+			<div class="month_flex">
+				<div class="mont_mount mount_color">0 </div>
+				<div class="detail focus_font_color" onclick="go_detail()">月供详情 ></div>
+			</div>
+			<div class="monthly_detail">
+				<div>节省利息<div class="mount_color" id="mount2_1">0</div></div>
+				<div>支付利息<div class="mount_color" id="mount2_2">0</div></div>
+				<div>还款总额<div class="mount_color" id="mount2_3">0</div></div>
+			</div>	
+			<div class="monthly_detail">
+				<div>当月还款<div class="mount_color" id="mount2_4">0</div></div>
+				<div>次月起还款<div class="mount_color" id="mount2_5">0</div></div>
+				<div>还款截止日期<div class="mount_color" id="mount2_6">0</div></div>
+			</div>	
+			<div class="line"></div>
+		</div>
+
+		<!-- <div class="hr"></div> -->
+		<!-- 商业 -->
+		<div class="shangye">
+			<div class="loan_sum">
+				<label class="label_tit">贷款总额</label>
+				<div class="num"><input type="number" placeholder="0" onchange="calculate_normal()" class="input_num focus_font_color"><span>万元</span></div>
+			</div>
+
+			<!-- <div class="hr"></div> -->
+	 
+			<div class="loan_years">
+				<label class="label_tit">贷款期限</label><span class="loan_year mount_color">0</span><span class="mount_color" style="text-align: left;">年</span>
+			</div>
+			<div class="whengjd">
+				<div class="warp">
+			        <div class="mui-input-row mui-input-range">
+			            <span class="left">1</span> 
+			            <!-- <input type="range" class="jindut" value="30" min="1" max="30" step=0.01 > -->
+			            <input type="range" id="myRange" class="jindut" max="30" min="1" value="20" step="0.1" oninput="change(this)" onchange="change(this)">
+									<div class="range_div">
+										<div class="left_range focus_bac_color"></div>
+									</div>
+									<span class="right">30</span>
+			        </div>
+				</div>
+			</div>
+
+			<!-- <div class="hr"></div> -->
+
+			<div class="loan_type">
+				<label class="label_tit">原还款方式</label>
+				<div class="loan_type_btn">
+					<div class="mode_type mode_type_click">
+						<div class="active focus_font_color">等额本息</div>
+						<div>等额本金</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- <div class="hr"></div> -->
+
+			<div class="loan_rate">
+				<label class="label_tit">利率</label>
+				<div class="num loan_rate_div"><div onclick="open_loan_rate_business()" rate-value="" class="input_num focus_font_color"></div></div>
+				<img src="assets/img/xia.png" alt="">
+				<!-- <div class="num"><input placeholder="4.90" type="number" class="input_num"><span>%</span></div><span class="X"> × </span><div class="num"><input placeholder="1" type="number" class="input_num"><span>倍</span></div><span class="result"> = 4.9%</span> -->
+			</div>
+
+			<!-- <div class="benchmark">
+				<label class="label_tit _tit_color">当前年限基准：</label>
+				<div><span class="_tit_color">商业</span><span class="fc0_color">4.90%</span></div>
+				<div class="right"><span class="_tit_color">公积金</span><span class="fc0_color">4.90%</span></div>
+			</div> -->
+
+			<!-- <div class="hr"></div> -->
+
+			<!-- <button class="calculate_btn calculate_business">马上计算</button> -->
+		</div>
+
+		<!-- 公积金 -->
+		<div class="gongjijin">
+			<div class="loan_sum">
+				<label class="label_tit">贷款总额</label>
+				<div class="num"><input type="number" placeholder="0" onchange="calculate_normal()" class="input_num focus_font_color"><span>万元</span></div>
+			</div>
+
+			<!-- <div class="hr"></div> -->
+	 
+			<div class="loan_years">
+				<label class="label_tit">贷款期限</label><span class="loan_year mount_color">0</span><span class="mount_color" style="text-align: left;">年</span>
+			</div>
+			<div class="whengjd">
+				<div class="warp">
+			        <div class="mui-input-row mui-input-range">
+			            <span class="left">1</span> 
+			            <!-- <input type="range" class="jindut" id='inline-range' value="1" min="1" max="30" > -->
+			            <input type="range" id="myRange" class="jindut" max="30" min="1" value="20" step="0.01" oninput="change(this)" onchange="change(this)">
+									<div class="range_div">
+										<div class="left_range focus_bac_color"></div>
+									</div>
+									<span class="right">30</span>
+			        </div>
+				</div>
+			</div>
+
+			<!-- <div class="hr"></div> -->
+
+			<div class="loan_type">
+				<label class="label_tit">原还款方式</label>
+				<div class="loan_type_btn">
+					<div class="mode_type mode_type_click">
+						<div class="active focus_font_color">等额本息</div>
+						<div>等额本金</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- <div class="hr"></div> -->
+
+			<div class="loan_rate">
+				<label class="label_tit">利率</label>
+				<div class="num loan_rate_div"><div onclick="open_loan_rate_accumulation_fund()" rate-value="" class="input_num focus_font_color"></div></div>
+				<img src="assets/img/xia.png" alt="">
+			</div>
+
+			<!-- <div class="hr"></div> -->
+		</div>
+
+		<!-- 组合 -->
+		<div class="zuhe">
+			<div class="loan_sum zuhe_loan_sum">
+				<label class="label_tit">商业贷款</label>
+				<div class="num"><input placeholder="0" type="number" onchange="calculate_normal()" class="input_num sy_loan focus_font_color"><span>万元</span></div>
+				<span class="_tit_color gjj">公积金</span>
+				<div class="num"><input placeholder="0" type="number" onchange="calculate_normal()" class="input_num gjj_loan focus_font_color"><span>万元</span></div>
+			</div>
+
+			<!-- <div class="hr"></div> -->
+	 
+			<div class="loan_years">
+				<label class="label_tit">贷款期限</label><span class="loan_year mount_color">0</span><span class="mount_color" style="text-align: left;">年</span>
+			</div>
+			<div class="whengjd">
+				<div class="warp">
+			        <div class="mui-input-row mui-input-range">
+			            <span class="left">1</span> 
+			            <!-- <input type="range" class="jindut" id='inline-range' value="1" min="1" max="30" > -->
+			            <input type="range" id="myRange" class="jindut" max="30" min="1" value="20" step="0.01" oninput="change(this)" onchange="change(this)">
+									<div class="range_div">
+										<div class="left_range focus_bac_color"></div>
+									</div>
+									<span class="right">30</span>
+			        </div>
+				</div>
+			</div>
+
+			<!-- <div class="hr"></div> -->
+
+			<div class="loan_type">
+				<label class="label_tit">原还款方式</label>
+				<div class="loan_type_btn">
+					<div class="mode_type mode_type_click">
+						<div class="active focus_font_color">等额本息</div>
+						<div>等额本金</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- <div class="hr"></div> -->
+
+			<div class="loan_rate loan_rate_business">
+				<label class="label_tit">商业利率</label>
+				<div class="num loan_rate_div"><div onclick="open_loan_rate_business()" rate-value="" class="input_num focus_font_color"></div></div>
+				<img src="assets/img/xia.png" alt="">
+			</div>
+			<div class="loan_rate loan_rate_accumulation_fund">
+				<label class="label_tit">公积金利率</label>
+				<div class="num loan_rate_div"><div onclick="open_loan_rate_accumulation_fund()" rate-value="" class="input_num focus_font_color"></div></div>
+				<img src="assets/img/xia.png" alt="">
+			</div>
+
+			<!-- <div class="hr"></div> -->
+		</div>
+
+		<!-- 提前还贷 -->
+		<div class="tiqian">
+			<div class="loan_type original_loan_type">
+				<label class="label_tit">原贷款类型</label>
+				<div class="loan_type_btn">
+					<div class="mode_type mode_type_click">
+						<div class="active focus_font_color">商业贷款</div>
+						<div>公积金贷款</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="loan_type original_repayment_method">
+				<label class="label_tit">原还款方式</label>
+				<div class="loan_type_btn">
+					<div class="mode_type mode_type_click">
+						<div class="active focus_font_color">等额本息</div>
+						<div>等额本金</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="loan_sum">
+				<label class="label_tit">原贷款总额</label>
+				<div class="num"><input type="number" placeholder="0" onchange="calculate_normal()" class="input_num focus_font_color"><span>万元</span></div>
+			</div>
+
+			<!-- <div class="hr"></div> -->
+	 
+			<div class="loan_years">
+				<label class="label_tit">原贷款期限</label><span class="loan_year mount_color">0</span><span class="mount_color" style="text-align: left;">年</span>
+			</div>
+			<div class="whengjd">
+				<div class="warp">
+			        <div class="mui-input-row mui-input-range">
+			            <span class="left">1</span> 
+									<!-- <input type="range" class="jindut" id='inline-range' value="20" min="1" max="30" > -->
+									<input type="range" id="myRange" class="jindut" max="30" min="1" value="20" step="0.1" oninput="change(this)" onchange="change(this)">
+									<div class="range_div">
+										<div class="left_range focus_bac_color"></div>
+									</div>
+			            <span class="right">30</span>
+			        </div>
+				</div>
+			</div>
+
+			<!-- <div class="hr"></div> -->
+
+			<div class="loan_rate loan_rate_business">
+				<label class="label_tit">原贷款利率</label>
+				<div class="num loan_rate_div"><div onclick="open_loan_rate_business()" rate-value="" class="input_num focus_font_color"></div></div>
+				<img src="assets/img/xia.png" alt="">
+			</div>
+			<div class="loan_rate loan_rate_accumulation_fund">
+				<label class="label_tit">原贷款利率</label>
+				<div class="num loan_rate_div"><div onclick="open_loan_rate_accumulation_fund()" rate-value="" class="input_num focus_font_color"></div></div>
+				<img src="assets/img/xia.png" alt="">
+			</div>
+
+			<!-- <div class="loan_rate">
+				<label class="label_tit">原贷款利率</label>
+				<div class="num"><input placeholder="4.90" type="number" class="input_num"><span>%</span></div><span class="X"> × </span><div class="num"><input placeholder="1" type="number" class="input_num"><span>倍</span></div><span class="result"> = 4.9%</span>
+			</div> -->
+
+			<!-- <div class="benchmark">
+				<label class="label_tit _tit_color">当前年限基准：</label>
+				<div><span class="_tit_color">商业</span><span class="fc0_color">4.90%</span></div>
+				<div class="right"><span class="_tit_color">公积金</span><span class="fc0_color">4.90%</span></div>
+			</div> -->
+
+			<!-- <div class="hr"></div> -->
+
+			<div class="advance_loan_time">
+				<label class="label_tit">首次还贷时间</label>
+				<div class="num"><input type="month" class="date first_repay focus_font_color" onchange="calculate_normal()"></div>
+				<!-- <img src="assets/img/xia.png" alt=""> -->
+			</div>
+			<div class="advance_loan_time">
+				<label class="label_tit">提前还贷时间</label>
+				<div class="num"><input type="month" class="date end_repay focus_font_color" onchange="calculate_normal()"></div>
+				<!-- <img src="assets/img/xia.png" alt=""> -->
+			</div>
+
+			<!-- <div class="hr"></div> -->
+
+			<div class="advance_loan_type radio_div1">
+				<label class="label_tit">提前还贷方式</label>
+				<div class="choose" onchange="calculate_normal()">
+						<label class="radio">一次性还清<input type="radio" name="radio" value="1" checked><i></i></label>
+						<label class="radio" style="position: relative;">部分提前还款<input type="radio" value="2" name="radio"><i></i>
+							<div class="loan_rate radio_input">
+								<div class="num"><input type="number" placeholder="0" class="input_num focus_font_color"><span>万元</span></div>
+							</div>
+						</label>
+				</div>
+			</div>
+
+			<!-- <div class="hr"></div> -->
+
+			<div class="advance_loan_type radio_div2">
+					<label class="label_tit">还款处理方式</label>
+					<div class="choose" onchange="calculate_normal()">
+							<label class="radio">还款时间不变<input type="radio" name="radio1" value="1" checked><i></i></label>
+							<label class="radio">月供不变<input type="radio" value="2" name="radio1"><i></i></label>
+					</div>
+				</div>
+		</div>
+
+		<!-- message -->
+		<div class="message">
+			<h2>提示</h2>
+			<div class="content">贷款总额不能为0</div>
+			<div class="qd">确定</div>
+		</div>
+
+		<!-- 商业利率 -->
+		<div class="loan_rate_pop_business loan_rate_pop">
+			<div class="custom">
+				<h2>自定义利率</h2><input type="number" class="custom_loan_rate" placeholder="请输入自定义利率">%<button onclick="loan_rate_pop_business_sure()">确定</button>
+			</div>
+			<div class="separate">或者选择常用利率</div>
+			<ul>
+				<!-- <li rate-value="4.41">9折(4.41%)</li>
+				<li rate-value="4.66">95折(4.66%)</li>
+				<li rate-value="4.90">基准利率(4.90%)</li>
+				<li rate-value="5.15">上浮5(5.15%)</li>
+				<li rate-value="5.39" class="selected">上浮10(5.39%)</li>
+				<li rate-value="5.63">上浮15(5.63%)</li>
+				<li rate-value="5.88">上浮20(5.88%)</li>
+				<li rate-value="6.12">上浮25(6.12%)</li>
+				<li rate-value="6.37">上浮30(6.37%)</li> -->
+			</ul>
+		</div>
+
+		<!-- 公积金利率 -->
+		<div class="loan_rate_pop_accumulation_fund loan_rate_pop">
+			<div class="custom">
+				<h2>自定义利率</h2><input type="number" class="custom_loan_rate" placeholder="请输入自定义利率">%<button onclick="loan_rate_pop_accumulation_fund_sure()">确定</button>
+			</div>
+			<div class="separate">或者选择常用利率</div>
+			<ul>
+				<!-- <li rate-value="2.93">9折(2.93%)</li>
+				<li rate-value="3.09">95折(3.09%)</li>
+				<li rate-value="3.25">基准利率(3.25%)</li>
+				<li rate-value="3.41">上浮5(3.41%)</li>
+				<li rate-value="3.58" class="selected">上浮10(3.58%)</li>
+				<li rate-value="3.74">上浮15(3.74%)</li>
+				<li rate-value="3.90">上浮20(3.90%)</li>
+				<li rate-value="4.06">上浮25(4.06%)</li>
+				<li rate-value="4.23">上浮30(4.23%)</li> -->
+			</ul>
+		</div>
+
+		<!-- 背景 -->
+		<div id="bg"></div>
+
+		<div id="detail1">
+			<div class="loan_type">
+				<img class="back1" src="assets/img/back.png">
+		      <div class="loan_type_btn" style="margin: 0 13%;">
+		        <div class="mode_type mode_type_detail">
+		          <div class="tab1">等额本息</div>
+		          <div class="tab2">等额本金</div>
+		        </div>
+		      </div>
+		    </div>
+		    <div>
+		      <table class="hor-zebra" id="hor-zebra1"> 
+		        <thead>
+		          <tr>
+		            <th scope="col">还款时间</th>
+		            <th scope="col">偿还本息</th>
+		            <th scope="col">偿还本金</th>
+		            <th scope="col">支付利息</th>
+		            <th scope="col">剩余本金</th>
+		          </tr>
+		        </thead>
+		        <tbody>
+		        </tbody>
+		      </table>
+		    </div>
+		</div>
+		<div id="detail2">
+			<div class="loan_type">
+				<img class="back2" src="assets/img/back.png">
+		      	<div class="loan_type_btn" style="margin: 0 13%;">
+			        <div class="mode_type mode_type_detail">
+			          	<div class="tab1">等额本息</div>
+			          	<div class="tab2">等额本金</div>
+			        </div>
+		      	</div>
+		    </div>
+		    <div>
+		      	<table class="hor-zebra" id="hor-zebra2"> 
+		        	<thead>
+			          	<tr>
+				            <th scope="col">还款时间</th>
+				            <th scope="col">还款金额</th>
+				            <th scope="col">商业贷款</th>
+				            <th scope="col">公积金贷款</th>
+			          	</tr>
+		        	</thead>
+			        <tbody> 
+			        </tbody>
+		      	</table>
+		    </div>
+		</div>
+		<!-- <div class="loading"><img src="assets/img/loading.svg" alt=""></div> -->
+		<!-- <div class="loader">
+			<iframe src="assets/img/loading.svg" frameborder="0"></iframe>
+		</div> -->
+	</body>
+</html>

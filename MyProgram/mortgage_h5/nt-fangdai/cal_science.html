@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>科学计算器</title>
+    <link rel="stylesheet" href="assets/css/cal_science.css">
+    <script src="assets/js/cal_science.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <!-- <header>
+        <li>wxm</li>
+    </header> -->
+    <div class="calculator_box">
+      <!-- //显示屏 -->
+      <div class="display" id="dispaly">
+
+      </div>
+      <!-- 功能条 -->
+      <div class="function">
+        <button type="button" name="button" onclick="empty()">清空</button>
+        <button type="button" name="button" onclick="back()">撤回</button>
+        <!-- <div class="music">
+        </div> -->
+      </div>
+      <div class="content">
+      <!-- 数字框 -->
+      <div class="number_box">
+        <table>
+          <tr>
+            <td onclick="calculator()">9</td>
+            <td onclick="calculator()">8</td>
+            <td onclick="calculator()">7</td>
+          </tr>
+          <tr>
+            <td onclick="calculator()">6</td>
+            <td onclick="calculator()">5</td>
+            <td onclick="calculator()">4</td>
+          </tr>
+          <tr>
+              <td onclick="calculator()">3</td>
+              <td onclick="calculator()">2</td>
+              <td onclick="calculator()">1</td>
+          </tr>
+          <tr>
+            <td colspan="2" onclick="calculator()">0</td>
+            <td onclick="calculator()">.</td>
+          </tr>
+        </table>
+      </div>
+      <!-- 加减框 -->
+      <div class="calculator">
+        <table>
+          <tr>
+            <td onclick="calculator()">+</td>
+            <td onclick="calculator()">-</td>
+          </tr>
+          <tr>
+            <td onclick="calculator()">*</td>
+            <td onclick="calculator()">/</td>
+          </tr>
+        </table>
+        <button type="button" name="button" id="r_out" onClick="resultscalcaulte()">=</button>
+      </div>
+
+    </div>
+
+    </div>
+    <!-- <footer><img src="assets/img/cat4.png" alt=""></footer> -->
+  </body>
+</html>

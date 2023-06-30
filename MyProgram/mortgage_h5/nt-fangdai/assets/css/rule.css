@@ -1,0 +1,20 @@
+@keyframes mymove1
+{
+	from {left:0%;}
+	to {left:0%;}
+}
+@keyframes mymove2
+{
+	from {left:25%;}
+	to {left:50%;}
+}
+@keyframes mymove3
+{
+	from {left:50%;}
+	to {left:75%;}
+}
+@keyframes mymove4
+{
+	from {left:75%;}
+	to {left:100%;}
+}

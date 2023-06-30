@@ -1,0 +1,247 @@
+body{
+  margin: 0;
+  background:#242323;
+}
+header{
+  text-align: center;
+  background: rgb(121, 118, 138);
+  margin-bottom: 50px;
+  height: 40px;
+  line-height: 40px;
+  color: #fff;
+}
+
+header li{
+  text-align: center;
+  width: 10%;
+  background: rgb(148, 75, 75);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+
+}
+header li:hover{
+  position: relative;
+  margin-top: -34px;
+  transition: 0.5s;
+}
+
+table{
+  text-align: center;
+}
+.calculator_box{
+  width: 450px;
+  height: 420px;
+  background: rgb(112, 124, 152);
+  margin: 0 auto;
+  padding: 15px 0;
+  border: 7px double #b0b0b0;
+  border-radius: 30px;
+  background-image: linear-gradient(to bottom, #909090, #989898 32%);
+  box-shadow: 0 3px 33px 8px rgba(22, 6, 6, 0.4), inset 0 0 28px 3px #4d4952;
+
+}
+.display{
+  width: 90%;
+  margin: 0 auto;
+  height: 70px;
+  background: rgb(204, 194, 192);
+  border-radius: 8px;
+  background-color: #3f3c3b;
+  box-shadow: 0 0 0px 1px #252829;
+  font-size: 40px;
+  color:#ffffff;
+  text-align: right;
+  line-height: 70px;
+  padding-right: 10px;
+}
+.function button{
+  height: 30px;
+  width: 60px;
+  margin: 6px;
+  border-radius: 15px;
+  background-color: #F8930F;
+  color: white;
+  border: none;
+  text-shadow: 0 0 12px black;
+  box-shadow: inset 0 0 20px 3px #bc6a00;
+}
+.number_box,.calculator,.music{
+  display: inline-block;
+}
+.content{
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.function{
+  margin: 10px auto;
+  width: 90%;
+  margin: 13 auto;
+  position: relative;
+}
+.music{
+  border-top: 2px double #3c94c0;
+  border-bottom:2px double #3c94c0;
+  width: 250px;
+  height: 5px;
+  border-radius: 3px;
+}
+.number_box tr,.calculator tr{
+  width: inherit;
+}
+.number_box td{
+  width: 100px;
+  height: 60px;
+  background: rgb(235, 232, 233);
+  border-radius: 5px;
+  box-shadow: inset 0 0 7px 3px #c9c8c8;
+}
+.number_box td:active{
+    background:#6c6a6a;
+    box-shadow: inset 0 0 0px 0px #c9c8c8;
+    transition: 0.5s;
+    color: #fff;
+}
+.calculator{
+  width: 88px;
+  position: relative;
+  top: -47px;
+  text-align: center;
+  font-size: x-large;
+}
+
+.calculator td{
+  width: 44px;
+  height: 72px;
+  border-radius: 3px;
+  text-shadow: 0px 0px 10px #1f1f1f;
+  background-color: rgb(185, 185, 185);
+  box-shadow: inset 0 0 8px 2px #9a9a9a;
+  color: #ffffff;
+}
+.calculator td:active{
+  box-shadow: inset 0 0 0px 0px ;
+  background-color:#9c1414;
+  transition: 0.5s;
+}
+#r_out{
+  width: 86px;
+  height: 100px;
+  border-radius: 8px;
+  margin-top: 2px;
+  color: aliceblue;
+  background-color: #F8930F;
+  text-shadow: 0 0 12px black;
+  box-shadow: inset 0 0 20px 3px #bc6a00;
+  border: none;
+}
+#r_out:active{
+  background-color:#55595e;
+  box-shadow: inset 0 0 0px 0px;
+  transition: 0.5s;
+}
+footer{
+  text-align: center;
+}
+footer img{
+  /* width: 302px; */
+  /* height: 267px; */
+  height: 125px;
+}
+footer img:hover{
+  margin-right: -150px;
+  transition: 0.5s
+
+}
+
+@media only screen and (max-width: 500px) {
+
+    .calculator_box{
+      width: 95%;
+      height: 390px;
+      margin: 0 auto;
+    }
+    .number_box td{
+      width: 70px;
+      height: 57px;
+    }
+    .calculator{
+      margin-top: -47px;
+    }
+    .calculator td{
+      width: 44px;
+      height: 66px;
+    }
+    .music{
+      width: 165px;
+    }
+    .content {
+      width: 81%;
+      margin: 0 auto;
+      position: relative;
+    }
+    header li{
+      border-radius: 0px;
+      border-bottom-right-radius: 20px;
+      border-bottom-left-radius: 20px;
+
+    }
+}
+
+@media only screen and (max-width: 400px){
+  .calculator_box{
+    width: 95%;
+    height: 390px;
+    margin: 30px auto;
+  }
+  .number_box td{
+    width: 57px;
+    height: 57px;
+  }
+  .calculator{
+    margin-top: -47px;
+    margin-left: 3px;
+  }
+  .calculator td{
+    width: 44px;
+    height: 66px;
+  }
+  .music{
+    width: 154px;
+  }
+
+}
+@media only screen and (max-width: 360px){
+  .content {
+    width: 89%;
+  }
+  .calculator_box{
+    width: 95%;
+    height: 390px;
+    margin: 0 auto;
+  }
+  .number_box td{
+    width: 65px;
+    height: 57px;
+  }
+  .calculator{
+    margin-top: -47px;
+    margin-left: 2px;
+  }
+  .calculator td{
+    width: 44px;
+    height: 66px;
+  }
+  .music{
+    width: 154px;
+  }
+}
+
+@media only screen and (max-width: 320px){
+  .number_box td{
+    width: 54px;
+    height: 57px;
+  }
+
+}

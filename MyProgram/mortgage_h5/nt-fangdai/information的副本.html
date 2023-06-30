@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>资讯</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1, maximum-scale=1.0, user-scalable=no"> 
+    <meta content="telephone=no" name="format-detection" />
+    <script src="assets/js/jquery-1.12.4.min.js"></script>
+    <style>
+      html,body{
+        margin: 0;
+        padding: 0;
+      }
+      #ifm1{
+        display: none;
+      }
+    </style>
+    <script>
+      window.bridge = window.bridge || {};
+      // 原生点击返回调用
+      window.bridge.backButtonClick = function () {
+        // 跳转，app拦截判断
+        window.location.href = 'bridge://processBackButtonClicked?default_parameter=h5_has_bean_processed';
+        // window.location.href = 'index.html' 
+        if($('#ifm1').is(':visible')){
+          window.location.href = 'index.html'
+          // $('#ifm2').hide();
+        }else{
+          $('#ifm1').show();
+          $('#ifm2').hide();
+        }
+      }
+
+      $(function(){
+        var width = window.innerWidth;
+        var height = window.innerHeight;
+        $('iframe').width(width);
+        $('iframe').height(height);
+        console.log(width,height);
+      })
+    </script>
+	</head>
+	<body>
+    <iframe id="ifm1" src="https://cpu.baidu.com/1008/e866cfb0" height="100%" frameborder="0"></iframe>
+    <iframe id="ifm2" src="https://cpu.baidu.com/1008/e866cfb0" height="100%" frameborder="0"></iframe>
+	</body>
+</html>
