@@ -1,35 +1,35 @@
 <template>
   <view>
-		<div class="container">
-			<div class="row">
-				<div class="grid">
-					<a @click="goPage('cal_mortgage')" >
-						<img src="/static/img/icon.png" alt="">
-						<div class="cal_text">房贷计算器</div>
+		<view class="container">
+			<view class="row">
+				<view class="grid">
+					<a @click="goPage('cal_mortgage')" mode="widthFix" >
+						<image src="/static/img/icon.png" alt="" />
+						<view class="cal_text">房贷计算器</view>
 					</a>
-				</div>
-				<!-- <div class="grid">
+				</view>
+				<!-- <view class="grid">
 					<a href="cal_science.html">
 						<img src="/static/img/science.png" alt="">
-						<div class="cal_text">科学计算器</div>
+						<view class="cal_text">科学计算器</view>
 					</a>
-				</div> -->
-			</div>
-			<!-- <div class="row">
-					<div class="grid">
+				</view> -->
+			</view>
+			<!-- <view class="row">
+					<view class="grid">
 						<a href="cal_tax_rate.html">
 							<img src="/static/img/rate.png" alt="">
-							<div class="cal_text">税率计算器</div>
+							<view class="cal_text">税率计算器</view>
 						</a>
-					</div>
-					<div class="grid">
+					</view>
+					<view class="grid">
 						<a href="information.html">
 							<img src="/static/img/information.png" alt="">
-							<div class="cal_text">房产资讯</div>
+							<view class="cal_text">房产资讯</view>
 						</a>
-					</div>
-				</div> -->
-		</div>
+					</view>
+				</view> -->
+		</view>
   </view>
 </template>
 
@@ -52,11 +52,6 @@ export default {
 </script>
 
 <style lang="scss">
-html,body{
-  margin: 0;
-  padding: 0;
-  background-color: #242323;
-}
 .container{
   margin: 20px 5px;
 }
@@ -64,21 +59,24 @@ html,body{
   display: flex;
 }
 .container .row .grid{
-  width: 200px;
+  // width: 200px;
+  // height: 200px;
   padding: 10px;
   text-align: center;
-  border: 1px solid #2e2d2d;
+  border-radius: 4px;
+  border: 1px solid #656464;
 }
 .cal_text{
-  font-size: 20px;
+  font-size: 16px;
   color: #989898;
 }
 a{
   text-decoration:none; 
   color:#333; 
 }
-img{
+image{
   width: 50px;
+  height: 50px;
 }
 .head{
   padding: 5px 10px;
@@ -100,31 +98,31 @@ img{
   border-top: 1px solid #4b4848;
   margin-top: 10px;
 }
-table{
-  width: 96%;
-  font-weight: lighter;
-  margin: 3% 2%;
-  border-radius: 8px;
-  color: #a8a8a8;
-}
-table tr td:nth-child(2){
-  color: #F8930F;
-  text-align: center;
-}
-table .tit{
-  background: #1d1b1b;
-  font-weight: 500;
-  color: #a8a8a8!important;
-}
-table td{
-  border: 1px solid;
-  padding: 3px;
-  border-style: solid;
-  border-color: #4b4848;
-  border-top: 0;
-  border-left: 0;
-  border-right: 0;
-}
+// table{
+//   width: 96%;
+//   font-weight: lighter;
+//   margin: 3% 2%;
+//   border-radius: 8px;
+//   color: #a8a8a8;
+// }
+// table tr td:nth-child(2){
+//   color: #F8930F;
+//   text-align: center;
+// }
+// table .tit{
+//   background: #1d1b1b;
+//   font-weight: 500;
+//   color: #a8a8a8!important;
+// }
+// table td{
+//   border: 1px solid;
+//   padding: 3px;
+//   border-style: solid;
+//   border-color: #4b4848;
+//   border-top: 0;
+//   border-left: 0;
+//   border-right: 0;
+// }
 // .content {
 //   display: flex;
 //   flex-direction: column;

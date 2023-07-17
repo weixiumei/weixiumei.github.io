@@ -3,7 +3,8 @@
 		{
 			"path": "pages/index",
 			"style": {
-				"navigationBarTitleText": "房贷计算器"
+				"navigationBarTitleText": "房贷计算器",
+        "backgroundColor": "#F8F8F8"
 			}
 		},
     {
