@@ -87,18 +87,18 @@
       <div class="loan_rate">
         <label class="label_tit">首次还贷时间</label>
         <view class="num inputWidh">
-          <picker
-            v-model="baseInput.firstRepayDate" class="date" mode="date"></picker>
-            <picker mode="date" :value="baseInput.firstRepayDate" @change="bindDateChange">
-              <view class="uni-input">{{date}}</view>
-            </picker>
+          <picker style="width: 100%;" mode="date" :value="baseInput.firstRepayDate" @change="bindDateChange">
+            <view class="uni-input">{{baseInput.firstRepayDate}}</view>
+          </picker>
         </view>
       </div>
       <!-- 提前还贷时间 -->
       <div class="loan_rate">
         <label class="label_tit">提前还贷时间</label>
         <view class="num inputWidh">
-          <input v-model="baseInput.endRepayDate" type="date" />
+          <picker style="width: 100%;" mode="date" :value="baseInput.endRepayDate" @change="(e)=>baseInput.endRepayDate=e.detail.value">
+            <view class="uni-input">{{baseInput.endRepayDate}}</view>
+          </picker>
         </view>
       </div>
     </block>
@@ -182,9 +182,10 @@
 import { calculateEqualPrincipalAndInterest, calculateEqualPrincipal } from '../utils/calculate.js'
 export default {
   data() {
-    const currentDate = this.getDate({
-      format: true
-    })
+    // const currentDate = this.getDate({
+    //   format: true
+    // })
+    // console.log('--', currentDate)
     return {
       repaymentList: [
         { label: '商业', value: 'shangye' },
@@ -247,7 +248,7 @@ export default {
         loanAmount: 100,
         loanYears: 30,
         loanRate: 4.2,
-        firstRepayDate: currentDate,// 首次还贷时间
+        firstRepayDate: this.getDate(),// 首次还贷时间
         endRepayDate:  this.getDate('end'),// 提前还贷时间
       }
     }
@@ -300,11 +301,13 @@ export default {
         this.baseInput = { ...this.gongjijin }
       } else if (this.selectTab == 'zuhe') {
         this.baseInput = { ...this.zuhe }
+      } else if (this.selectTab == 'tiqian') {
+        this.baseInput = { ...this.tiqian }
       }
       this.getData()
     },
-    bindDateChange() {
-      console.log('bindDateChange')
+    bindDateChange(e) {
+      this.baseInput.firstRepayDate = e.detail.value
     },
     changeLoanType(item) {
       // 原贷款方式tab变更
@@ -322,19 +325,20 @@ export default {
       this.baseInput.loanYears = e.detail.value
     },
     getDate(type) {
-        const date = new Date();
-        let year = date.getFullYear();
-        let month = date.getMonth() + 1;
-        let day = date.getDate();
+      const date = new Date();
+      let year = date.getFullYear();
+      let month = date.getMonth() + 1;
+      let day = date.getDate();
 
-        if (type === 'start') {
-            year = year - 60;
-        } else if (type === 'end') {
-            year = year + 2;
-        }
-        month = month > 9 ? month : '0' + month;
-        day = day > 9 ? day : '0' + day;
-        return `${year}-${month}-${day}`;
+      if (type === 'start') {
+          year = year - 60;
+      } else if (type === 'end') {
+          year = year + 2;
+      }
+      month = month > 9 ? month : '0' + month;
+      day = day > 9 ? day : '0' + day;
+      console.log('--', `${year}-${month}-${day}`)
+      return `${year}-${month}-${day}`;
     },
     getData() {
       let principal = this.baseInput.loanAmount * 10000;
@@ -486,7 +490,10 @@ export default {
       }
     }
     .uni-input{
-      height: 25px;
+      height: 32px;
+      width: 100%;
+      color: #f8930f;
+      font-size: 16px;
     }
     .num {
       display: flex;
@@ -502,6 +509,7 @@ export default {
       input{
         padding: 6px;
         color: #f8930f;
+        font-size: 16px;
       }
       span{
         text-wrap: nowrap;
