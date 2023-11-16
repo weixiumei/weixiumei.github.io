@@ -11,7 +11,10 @@ export default {
   },
 }
 </script>
-
-<style>
-/*每个页面公共css */
+<style lang="scss">
+	.example-info {
+		font-size: 14px;
+		color: #333;
+		padding: 10px;
+	}
 </style>

@@ -541,7 +541,7 @@ function calculate_normal() {
                         };
                     };
                 };
-                
+                console.log('---', ret)
                 if(original_repayment_method == '等额本息'){
                     // 原每月还款
                     $('.top_part_2 .mont_mount')[0].innerText = num_format(ret.preLoan);
@@ -628,7 +628,6 @@ function calculate_normal() {
         $('.monthly_supply #mount3')[0].innerText = num_format(totalMoney / 10000, 2) + "万";
 
     } else if (loan_type == '等额本金') {
-
         var firstMonth = 0, decreaseMonth = 0, totalInterest = 0, totalMoney = 0;
         if (index == 0 || index == 1) {//商业或公积金
             ret = calculateEqualPrincipal(principal, months, rate);
@@ -718,7 +717,6 @@ function go_detail() {
         // // 提前还贷
         current_page = 'detail1';
     }
-
     window.sessionStorage.principal = principal;
     window.sessionStorage.months = months;
     window.sessionStorage.rate = rate;
@@ -870,7 +868,8 @@ function calculate_normal_detail(loan_type) {
             </tr>'
     }
     table_trs += '<tr><td colspan="5">数据仅供参考</td></tr>';
-    $('table tbody').html(table_trs);
+  $('table tbody').html(table_trs);
+
 }
 // 提前还贷详情
 function calculate_advance_detail(loan_type) {

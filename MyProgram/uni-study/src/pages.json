@@ -1,0 +1,28 @@
+{
+	"pages": [
+    {
+			"path": "pages/FE/home",
+			"style": {
+				"navigationBarTitleText": "前端面试题"
+			}
+		},
+    {
+			"path": "pages/FE/javaScript",
+			"style": {
+				"navigationBarTitleText": "JavaScript"
+			}
+		},
+    {
+			"path": "pages/index",
+			"style": {
+				"navigationBarTitleText": "学习"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "学习",
+		"navigationBarBackgroundColor": "#fff",
+		"backgroundColor": "#f2f2f2"
+	}
+}
